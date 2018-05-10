@@ -1,7 +1,7 @@
 {
-  "name": "iview-admin-template",
+  "name": "framework-iview-admin",
   "version": "1.0.0",
-  "description": "a management template bases on iview-admin-1.3.1",
+  "description": "a web backend management framework bases on iview-admin-1.3.1",
   "main": "index.js",
   "scripts": {
     "init": "webpack --progress --config build/webpack.dev.config.js",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/pplm/iview-admin.git"
+    "url": "https://github.com/coding-helper/framework-iview-admin"
   },
   "author": "Oracle<oraclegao@126.com>",
   "license": "MIT",
