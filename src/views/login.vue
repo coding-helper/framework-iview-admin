@@ -68,7 +68,6 @@ export default {
                         username: this.form.userName,
                         password: require('node-sha1')(this.form.password),
                     };
-                    console.log(config);
                     if(config.skipLogin) {
                         Cookies.set('user', loginInfo.username);
                         Cookies.set('token', loginInfo.password);
@@ -79,7 +78,7 @@ export default {
                         });
                         return;
                     }
-                    util.ajax.post('/system/login', loginInfo).then(res => {
+                    util.ajax.post(config.loginUrl, loginInfo).then(res => {
                         if (res.status === 200) {
                             if (res.data.code === '0') {
                                 Cookies.set('user', this.form.userName);

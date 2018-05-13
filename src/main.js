@@ -40,7 +40,7 @@ new Vue({
             }
         });
         this.$store.commit('setTagsList', tagsList);
-        
+
         util.ajax.interceptors.request.use(
             config => {
                 config.headers.token = Cookies.get('token');

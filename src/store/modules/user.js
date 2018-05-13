@@ -1,4 +1,6 @@
 import Cookies from 'js-cookie';
+import util from '@/libs/util';
+import config from '@/config/config';
 
 const user = {
     state: {
@@ -7,6 +9,9 @@ const user = {
     },
     mutations: {
         logout (state, vm) {
+            if (!config.skipLogout) {
+                util.ajax.post(config.logoutUrl);
+            }
             Cookies.remove('user');
             Cookies.remove('token');
             // 恢复默认样式
