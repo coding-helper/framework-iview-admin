@@ -10,15 +10,16 @@
                 个人信息
             </p>
             <div>
-                <Form 
+                <Form
                     ref="userForm"
-                    :model="userForm" 
-                    :label-width="100" 
+                    :model="userForm"
+                    :label-width="100"
                     label-position="right"
                     :rules="inforValidate"
                 >
                     <FormItem label="用户姓名：" prop="name">
                         <div style="display:inline-block;width:300px;">
+                            <span>{{ userForm.name }}</span>
                             <Input v-model="userForm.name" ></Input>
                         </div>
                     </FormItem>
@@ -216,11 +217,11 @@ export default {
             });
         },
         init () {
-            this.userForm.name = 'Lison';
-            this.userForm.cellphone = '17712345678';
-            this.initPhone = '17712345678';
-            this.userForm.company = 'TalkingData';
-            this.userForm.department = '可视化部门';
+            this.userForm.name = 'OracleGao';
+            this.userForm.cellphone = '13011009495';
+            this.initPhone = '13011009495';
+            this.userForm.company = '';
+            this.userForm.department = '';
         },
         cancelInputCodeBox () {
             this.inputCodeVisible = false;

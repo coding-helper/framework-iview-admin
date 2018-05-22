@@ -1,12 +1,14 @@
 let config = {
-    env: "development",
+    env: 'development',
+    name: 'Coding Helper framework iview admin',
     dev: {
-        host: '0.0.0.0',
+        host: 'localhost',
         port: 8888,
         serviceUrl: 'http://localhost:8880',
         serviceRewritePath: '/v1',
     },
     prod: {
+        publicPathUrl: 'http://localhost:8880/dist/',
         serviceUrl: '',
     },
 };

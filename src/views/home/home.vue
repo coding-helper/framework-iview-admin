@@ -21,7 +21,6 @@ export default {
     },
     methods: {
         init() {
-            console.log('1111');
         }
     },
 };

@@ -7,18 +7,12 @@ let util = {
 
 };
 util.title = function (title) {
-    title = title || 'iView admin';
+    title = title || 'Coding Helper framework iview admin';
     window.document.title = title;
 };
 
-const ajaxUrl = config.env === 'development'
-    ? '/api'
-    : config.env === 'production'
-        ? config.prod.serviceUrl
-        : 'http://localhost';
-
 util.ajax = axios.create({
-    baseURL: ajaxUrl,
+    baseURL: '/api',
     timeout: 30000
 });
 
@@ -265,6 +259,7 @@ util.fullscreenEvent = function (vm) {
 };
 
 util.checkUpdate = function (vm) {
+  /*
     axios.get('https://api.github.com/repos/iview/iview-admin/releases/latest').then(res => {
         let version = res.data.tag_name;
         vm.$Notice.config({
@@ -277,6 +272,7 @@ util.checkUpdate = function (vm) {
             });
         }
     });
+    */
 };
 
 export default util;
