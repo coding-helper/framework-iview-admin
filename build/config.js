@@ -8,8 +8,7 @@ let config = {
         serviceRewritePath: '/v1',
     },
     prod: {
-        publicPathUrl: 'http://localhost:8880/dist/',
-        serviceUrl: '',
+        publicPathUrl: 'http://localhost:8880/dist/'
     },
 };
 module.exports = config;
