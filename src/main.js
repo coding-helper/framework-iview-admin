@@ -52,6 +52,9 @@ new Vue({
         );
         util.ajax.interceptors.response.use(
             res => {
+                if (res.headers.token) {
+                    Cookies.set('token', res.headers.token);
+                }
                 return res;
             },
             err => {
