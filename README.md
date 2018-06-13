@@ -29,7 +29,7 @@ let config = {
         host: 'localhost', //binding host
         port: 8888,  
         serviceUrl: 'http://localhost:8880', // service end url for every http request
-        serviceRewritePath: '/v1', // rewrite path, see devpack proxy rewrite path config
+        serviceRewritePath: '/v1', // rewrite path, see webpack proxy config rewrite path config
     },
     prod: { // use nginx proxy
         publicPathUrl: 'http://localhost:8880/dist/'
