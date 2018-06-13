@@ -1,5 +1,8 @@
 # Intrduction
 - Base on iview-admin 1.3.1
+- integrate sha256 for password
+- integrate vue-axios
+- add permission control with menu and operation
 
 # Install
 ```shell
@@ -51,3 +54,8 @@ let config = {
     },
 }
 ```
+
+# Permission
+## Menu Permission
+
+## Operation Permission
