@@ -1,16 +1,20 @@
 import Vue from 'vue';
 import iView from 'iview';
 import {router} from './router/index';
-import {appRouter, loginRouter, page500} from './router/router';
+import {appRouter, page401, page500} from './router/router';
 import store from './store';
 import App from './app.vue';
 import 'iview/dist/styles/iview.css';
 import VueI18n from 'vue-i18n';
 import util from './libs/util';
 import Cookies from 'js-cookie';
+import axios from 'axios';
+import VueAxios from 'vue-axios';
+import config from './config/config';
 
 Vue.use(VueI18n);
 Vue.use(iView);
+Vue.use(VueAxios, axios);
 
 new Vue({
     el: '#app',
@@ -41,7 +45,9 @@ new Vue({
         });
         this.$store.commit('setTagsList', tagsList);
 
-        util.ajax.interceptors.request.use(
+        this.$http.defaults.baseURL = config.http.baseUrl;
+        this.$http.defaults.timeout = config.http.timeout;
+        this.$http.interceptors.request.use(
             config => {
                 config.headers.token = Cookies.get('token');
                 return config;
@@ -50,7 +56,7 @@ new Vue({
                 return Promise.reject(err);
             }
         );
-        util.ajax.interceptors.response.use(
+        this.$http.interceptors.response.use(
             res => {
                 if (res.headers.token) {
                     Cookies.set('token', res.headers.token);
@@ -61,11 +67,12 @@ new Vue({
                 if (err.response) {
                     switch (err.response.status) {
                         case 401:
+                            this.$router.replace(page401);
                             Cookies.remove('user');
                             Cookies.remove('token');
-                            this.router.replace(loginRouter);
+                            break;
                         default:
-                            this.router.replace(page500);
+                            this.$router.replace(page500);
                     }
                 }
                 return Promise.reject(err);

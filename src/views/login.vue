@@ -38,7 +38,6 @@
 </template>
 
 <script>
-import util from '@/libs/util.js';
 import Cookies from 'js-cookie';
 import config from '@/config/config.js';
 
@@ -68,7 +67,6 @@ export default {
                         username: this.form.userName,
                         password: require('js-sha256').sha256(this.form.password),
                     };
-                    console.log(loginInfo);
                     if(config.skipLogin) {
                         Cookies.set('user', loginInfo.username);
                         Cookies.set('token', loginInfo.password);
@@ -79,9 +77,9 @@ export default {
                         });
                         return;
                     }
-                    util.ajax.post(config.loginUrl, loginInfo).then(res => {
+                    _self.$http.post(config.http.loginUrl, loginInfo).then(res => {
                         if (res.status === 200) {
-                            if (res.data.code === '0') {
+                            if (res.data.code == 0) {
                                 Cookies.set('user', this.form.userName);
                                 Cookies.set('token', res.data.content.token);
                                 _self.$store.commit('setAvator', 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3448484253,3685836170&fm=27&gp=0.jpg');

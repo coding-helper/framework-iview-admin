@@ -1,20 +1,12 @@
-import axios from 'axios';
 import semver from 'semver';
 import packjson from '../../package.json';
-import config from '../../build/config';
 
-let util = {
+let util = {};
 
-};
 util.title = function (title) {
     title = title || 'Coding Helper framework iview admin';
     window.document.title = title;
 };
-
-util.ajax = axios.create({
-    baseURL: '/api',
-    timeout: 30000
-});
 
 util.removeArray = (arr, e) => {
     arr.splice(arr.indexOf(e), 1);

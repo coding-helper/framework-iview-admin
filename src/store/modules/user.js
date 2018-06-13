@@ -1,5 +1,4 @@
 import Cookies from 'js-cookie';
-import util from '@/libs/util';
 import config from '@/config/config';
 
 const user = {
@@ -10,7 +9,7 @@ const user = {
     mutations: {
         logout (state, vm) {
             if (!config.skipLogout) {
-                util.ajax.post(config.logoutUrl);
+                vm.$http.post(config.http.logoutUrl);
             }
             Cookies.remove('user');
             Cookies.remove('token');

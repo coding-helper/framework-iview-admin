@@ -5,7 +5,7 @@ let config = {
         host: 'localhost',
         port: 8888,
         serviceUrl: 'http://localhost:8880',
-        serviceRewritePath: '/v1',
+        serviceRewritePath: '/v1.0',
     },
     prod: {
         publicPathUrl: 'http://localhost:8880/dist/'

@@ -19,6 +19,15 @@ export const page404 = {
     component: () => import('@/views/error-page/404.vue')
 };
 
+export const page401 = {
+    path: '/401',
+    name: 'error-401',
+    meta: {
+        title: '401-登录超时'
+    },
+    component: () => import('@/views/error-page/401.vue')
+};
+
 export const page403 = {
     path: '/403',
     meta: {
@@ -102,5 +111,6 @@ export const routers = [
     ...appRouter,
     page500,
     page403,
-    page404
+    page401,
+    page404,
 ];

@@ -3,7 +3,7 @@ import iView from 'iview';
 import Util from '../libs/util';
 import VueRouter from 'vue-router';
 import Cookies from 'js-cookie';
-import {routers, otherRouter, appRouter, loginRouter, page500} from './router';
+import {routers, otherRouter, appRouter} from './router';
 import store from '../store';
 
 Vue.use(VueRouter);
@@ -59,32 +59,3 @@ router.afterEach((to) => {
     iView.LoadingBar.finish();
     window.scrollTo(0, 0);
 });
-
-Util.ajax.interceptors.request.use(
-    config => {
-        config.headers.token = Cookies.get('token');
-        return config;
-    },
-    err => {
-        return Promise.reject(err);
-    }
-);
-
-Util.ajax.interceptors.response.use(
-    res => {
-        return res;
-    },
-    err => {
-        if (err.response) {
-            switch (err.response.status) {
-                case 401:
-                    Cookies.remove('user');
-                    Cookies.remove('token');
-                    router.replace(loginRouter);
-                default:
-                    router.replace(page500);
-            }
-        }
-        return Promise.reject(err);
-    }
-);
