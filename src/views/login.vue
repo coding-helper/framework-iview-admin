@@ -66,8 +66,9 @@ export default {
                 if (valid) {
                     let loginInfo = {
                         username: this.form.userName,
-                        password: require('node-sha1')(this.form.password),
+                        password: require('js-sha256').sha256(this.form.password),
                     };
+                    console.log(loginInfo);
                     if(config.skipLogin) {
                         Cookies.set('user', loginInfo.username);
                         Cookies.set('token', loginInfo.password);
