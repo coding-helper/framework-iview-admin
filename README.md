@@ -1,5 +1,6 @@
 # Intrduction
 - Base on iview-admin 1.3.1
+- add login and logout using token with axios
 - integrate sha256 for password
 - integrate vue-axios
 - add permission control with menu and operation
