@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import iView from 'iview';
 import {router} from './router/index';
-import {appRouter, page401, page500} from './router/router';
+import {appRouter, page401, page403, page404, page500} from './router/router';
 import store from './store';
 import App from './app.vue';
 import 'iview/dist/styles/iview.css';
