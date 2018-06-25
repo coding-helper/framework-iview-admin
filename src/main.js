@@ -71,6 +71,14 @@ new Vue({
                             Cookies.remove('user');
                             Cookies.remove('token');
                             break;
+                        case 403:
+                            this.$router.replace(page403);
+                            Cookies.remove('user');
+                            Cookies.remove('token');
+                            break;
+                        case 404:
+                            this.$router.replace(page404);
+                            break;
                         default:
                             this.$router.replace(page500);
                     }
